@@ -1,0 +1,13 @@
+{:aws {:creds {:access-key #resource-config/env "VIP_DP_AWS_ACCESS_KEY"
+               :secret-key #resource-config/env "VIP_DP_AWS_SECRET_KEY"}
+       :s3 {:bucket #resource-config/env "VIP_DP_S3_BUCKET"}
+       :sqs {:region #aws/region #resource-config/env "VIP_DP_SQS_REGION"
+             :queue #resource-config/env "VIP_DP_SQS_QUEUE"
+             :fail-queue #resource-config/env "VIP_DP_SQS_FAIL_QUEUE"}}
+ :postgres {:host #resource-config/env "DB_PORT_5432_TCP_ADDR"
+            :port #resource-config/env "DB_PORT_5432_TCP_PORT"
+            :user #resource-config/env "DB_ENV_POSTGRES_USER"
+            :password #resource-config/env "DB_ENV_POSTGRES_PASSWORD"}
+ :rabbitmq {:connection {:host #resource-config/env "RABBITMQ_PORT_5672_TCP_ADDR"
+                         :port #resource-config/edn #resource-config/env "RABBITMQ_PORT_5672_TCP_PORT"}
+            :exchange #resource-config/env "VIP_DP_RABBITMQ_EXCHANGE"}}
