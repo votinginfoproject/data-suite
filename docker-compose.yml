@@ -1,0 +1,38 @@
+processor:
+  build: ../data-processor/.
+  links:
+    - queue
+    - db
+  environment:
+    VIP_DP_AWS_ACCESS_KEY:
+    VIP_DP_AWS_SECRET_KEY:
+    VIP_DP_S3_BUCKET:
+    VIP_DP_SQS_REGION:
+    VIP_DP_SQS_QUEUE:
+    VIP_DP_SQS_FAIL_QUEUE:
+    VIP_DP_RABBITMQ_EXCHANGE:
+queue:
+  image: rabbitmq:3.4.3-management
+  ports:
+    - "15672"
+  hostname: qa-engine-rabbit
+db:
+  image: postgres:9.4.1
+  ports:
+    - "5432"
+  environment:
+    POSTGRES_USER:
+    POSTGRES_PASSWORD:
+metis:
+  build: ../Metis/.
+  links:
+    - mongo
+    - db
+    - processor
+  ports:
+    - 4000:4000
+mongo:
+  build: ../Metis/data/
+  ports:
+    - 27017:27017 
+    - 28017:28017
