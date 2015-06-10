@@ -7,7 +7,7 @@ Voting Information Project's Data Dashboard for states.
 
 ## Purpose
 
-The data-dashboard repo consists of a docker-compose file that will allow you to run both data-processor and Metis at the same time.
+The data-suite repo consists of a docker-compose file that will allow you to run both data-processor and Metis at the same time.
 
 ## Running in Docker
 
@@ -17,7 +17,7 @@ The data-dashboard repo consists of a docker-compose file that will allow you to
 
 ```
 -- voting-information-project/
-  -- data-dashboard/
+  -- data-suite/
     docker-compose.yml
     ...
   -- data-processor/
