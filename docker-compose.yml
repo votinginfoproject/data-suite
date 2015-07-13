@@ -26,13 +26,7 @@ db:
 metis:
   build: ../Metis/
   links:
-    - mongo
     - db
     - processor
   ports:
     - 4000:4000
-mongo:
-  build: ../Metis/data/
-  ports:
-    - 27017:27017 
-    - 28017:28017
