@@ -26,8 +26,11 @@ db:
     POSTGRES_DATABASE:
 metis:
   build: ../Metis/
+  environment:
+    VIP_DP_RABBITMQ_EXCHANGE:
   links:
     - db
     - processor
+    - rabbitmq
   ports:
     - 4000:4000
