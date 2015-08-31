@@ -28,7 +28,13 @@ db:
 metis:
   build: ../Metis/
   environment:
+    VIP_DP_AWS_ACCESS_KEY:
+    VIP_DP_AWS_SECRET_KEY:
+    VIP_DP_SES_REGION:
+    VIP_DP_SES_FROM:
     VIP_DP_RABBITMQ_EXCHANGE:
+    STORMPATH_API_KEY_ID:
+    STORMPATH_API_KEY_SECRET:
   links:
     - db
     - processor
