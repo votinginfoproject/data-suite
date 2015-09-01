@@ -6,7 +6,8 @@ processor:
   environment:
     VIP_DP_AWS_ACCESS_KEY:
     VIP_DP_AWS_SECRET_KEY:
-    VIP_DP_S3_BUCKET:
+    VIP_DP_S3_UNPROCESSED_BUCKET:
+    VIP_DP_S3_PROCESSED_BUCKET:
     VIP_DP_SQS_REGION:
     VIP_DP_SQS_QUEUE:
     VIP_DP_SQS_FAIL_QUEUE:
@@ -26,8 +27,20 @@ db:
     POSTGRES_DATABASE:
 metis:
   build: ../Metis/
+  environment:
+    VIP_DP_AWS_ACCESS_KEY:
+    VIP_DP_AWS_SECRET_KEY:
+    VIP_DP_SES_REGION:
+    VIP_DP_SES_FROM:
+    VIP_DP_RABBITMQ_EXCHANGE:
+    STORMPATH_ACCOUNT_STORE:
+    STORMPATH_ADMIN_GROUP:
+    STORMPATH_API_KEY_ID:
+    STORMPATH_API_KEY_SECRET:
+    STORMPATH_APP_HREF:
   links:
     - db
     - processor
+    - rabbitmq
   ports:
     - 4000:4000
