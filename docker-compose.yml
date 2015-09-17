@@ -38,6 +38,7 @@ metis:
     STORMPATH_API_KEY_ID:
     STORMPATH_API_KEY_SECRET:
     STORMPATH_APP_HREF:
+    NEW_RELIC_BROWSER_LICENSE_KEY:
   links:
     - db
     - processor
