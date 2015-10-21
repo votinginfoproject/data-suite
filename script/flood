@@ -1,0 +1,26 @@
+#!/bin/bash
+
+if [ $# -lt 4 ]; then
+    echo "Usage: $0 region queue-url loops feeds"
+    echo
+    echo "For example: $0 us-west-2 https://sqs.us-west-2... 5 va.zip,co.zip,la.zip"
+    echo
+    echo "Additionally, AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY must be set."
+    exit 1
+fi
+
+: "${AWS_ACCESS_KEY_ID?Need to set AWS_ACCESS_KEY_ID}"
+: "${AWS_SECRET_ACCESS_KEY?Need to set AWS_SECRET_ACCESS_KEY}"
+
+export REGION=$1
+export QUEUE_URL=$2
+export LOOPS=$3
+export FEEDS=$4
+
+export IFS=","
+
+for ((i=0;i<$LOOPS;i++)); do
+    for FEED in $FEEDS; do
+        aws sqs send-message --region $REGION --queue-url $QUEUE_URL --message-body "{:filename \"$FEED\"}"
+    done
+done
