@@ -11,6 +11,8 @@ The data-suite repo consists of a docker-compose file that will allow you to run
 
 ## Running in Docker
 
+Make a copy of `.env_sample`, named `.env`, and put your AWS keys, etc where they belong.
+
 > You will first need to ensure that data-processor and Metis are in the right file structure in relation to this
 > repo. It should look like:
 

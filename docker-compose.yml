@@ -3,17 +3,7 @@ processor:
   links:
     - rabbitmq
     - db
-  environment:
-    VIP_DP_AWS_ACCESS_KEY:
-    VIP_DP_AWS_SECRET_KEY:
-    VIP_DP_S3_UNPROCESSED_BUCKET:
-    VIP_DP_S3_PROCESSED_BUCKET:
-    VIP_DP_SQS_REGION:
-    VIP_DP_SQS_QUEUE:
-    VIP_DP_SQS_FAIL_QUEUE:
-    VIP_DP_RABBITMQ_EXCHANGE:
-    NEW_RELIC_LICENSE_KEY:
-    NEW_RELIC_ENVIRONMENT: development
+  env_file: .env
 rabbitmq:
   image: rabbitmq:3.5.3-management
   ports:
@@ -23,25 +13,10 @@ db:
   image: postgres:9.4.1
   ports:
     - "5432"
-  environment:
-    POSTGRES_USER:
-    POSTGRES_PASSWORD:
-    POSTGRES_DATABASE:
+  env_file: .env
 metis:
   build: ../Metis/
-  environment:
-    VIP_DP_AWS_ACCESS_KEY:
-    VIP_DP_AWS_SECRET_KEY:
-    VIP_DP_SES_REGION:
-    VIP_DP_SES_FROM:
-    VIP_DP_RABBITMQ_EXCHANGE:
-    STORMPATH_ACCOUNT_STORE:
-    STORMPATH_ADMIN_GROUP:
-    STORMPATH_API_KEY_ID:
-    STORMPATH_API_KEY_SECRET:
-    STORMPATH_APP_HREF:
-    NEW_RELIC_LICENSE_KEY:
-    NEW_RELIC_ENVIRONMENT: development
+  env_file: .env
   links:
     - db
     - processor
