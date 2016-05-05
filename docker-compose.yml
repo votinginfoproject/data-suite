@@ -12,7 +12,7 @@ rabbitmq:
 db:
   image: postgres:9.4.1
   ports:
-    - "5432"
+    - 5432:5432
   env_file: .env
 metis:
   build: ../Metis/
