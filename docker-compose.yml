@@ -4,16 +4,19 @@ processor:
     - rabbitmq
     - db
   env_file: .env
+
 rabbitmq:
   image: rabbitmq:3.5.3-management
   ports:
-    - "15672"
+    - 55672:15672
   hostname: qa-engine-rabbit
+
 db:
   image: postgres:9.4.1
   ports:
-    - 5432:5432
+    - 55432:5432
   env_file: .env
+
 metis:
   build: ../Metis/
   env_file: .env
@@ -22,4 +25,4 @@ metis:
     - processor
     - rabbitmq
   ports:
-    - 4000:4000
+    - 54000:4000
