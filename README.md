@@ -116,4 +116,4 @@ system:
 [metis]: https://github.com/votinginfoproject/Metis
 [data-suite]: https://github.com/votinginfoproject/suite
 [data-processor]: https://github.com/votinginfoproject/data-processor
-[aws-cli]: https://github.com/aws/aws-cli
+[awscli]: https://github.com/aws/aws-cli
