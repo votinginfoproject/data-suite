@@ -13,13 +13,6 @@ services:
       - 55672:15672
     hostname: rabbitmq
 
-  db:
-    image: postgres:9.4.7
-    ports:
-      - 55432:5432
-    env_file: .env
-    hostname: db
-
   metis:
     build: ../Metis/
     env_file: .env
